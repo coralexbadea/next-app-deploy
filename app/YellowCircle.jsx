@@ -18,23 +18,6 @@ export default function YellowCircles() {
           onClick={() => handleClick(index)}
         ></div>
       ))}
-      <style jsx>{`
-        .circle-container {
-          display: flex;
-          flex-wrap: wrap;
-        }
-        .circle {
-          width: 50px;
-          height: 50px;
-          border-radius: 50%;
-          margin: 10px;
-          background-color: yellow;
-          cursor: pointer;
-        }
-        .green {
-          background-color: green;
-        }
-      `}</style>
     </div>
   );
 }
