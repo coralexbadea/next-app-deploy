@@ -12,6 +12,7 @@
 # next.js
 /.next/
 /out/
+/artifact.tar
 
 # production
 /build
