@@ -7,8 +7,8 @@ const StudentPage = () => {
 
   useEffect(() => {
     handleAccessStudentPage();
-  });
-  
+  }, []);
+
   const handleUnderstandClick = async () => {
     // Update the student's understanding status in the database
     await axios.post(`/api/students`, { studentId:studentId, understand: true });
