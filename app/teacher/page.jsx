@@ -13,6 +13,13 @@ const TeacherPage = () => {
     };
 
     fetchData();
+    const intervalId = setInterval(() => {
+      window.location.reload();
+    }, 3000);
+
+    return () => {
+      clearInterval(intervalId);
+    };
   }, []);
 
   const totalStudents = students.length;
