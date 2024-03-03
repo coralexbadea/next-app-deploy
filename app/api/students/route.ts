@@ -47,22 +47,34 @@ export async function GET(request: NextRequest) : Promise<any> {
 export async function PUT(request: NextRequest) : Promise<any> {
   try {
     const { studentId, understand } = await request.json();
-    const studentIndex = students.findIndex(student => student.id === studentId);
-    if (studentIndex === -1) {
+    if(studentId == 'all'){
+      students.forEach(student => {
+        student.understand = false;
+      });
       return NextResponse.json({
-        error: 'Student not found' 
+        message: 'All students\' understanding status reset successfully'
       }, {
-        status: 404,
+        status: 200,
+      });
+    }
+    else{
+      const studentIndex = students.findIndex(student => student.id === studentId);
+      if (studentIndex === -1) {
+        return NextResponse.json({
+          error: 'Student not found' 
+        }, {
+          status: 404,
+        });
+      }
+      students[studentIndex].understand = understand;
+      return NextResponse.json({
+        studentId,
+        understand
+      }, {
+        status: 200,
       });
     }
 
-    students[studentIndex].understand = understand;
-    return NextResponse.json({
-      studentId,
-      understand
-    }, {
-      status: 200,
-    });
   } catch (error) {
     console.error(error);
     return NextResponse.json({
@@ -74,15 +86,14 @@ export async function PUT(request: NextRequest) : Promise<any> {
 }
 
 export async function DELETE() : Promise<any> {
+
   try {
-    students.forEach(student => {
-      student.understand = false;
-    });
+    students = [];
     return NextResponse.json({
-      message: 'All students\' understanding status reset successfully'
+      message: 'success'
     }, {
       status: 200,
-    });
+    })
   } catch (error) {
     console.error(error);
     return NextResponse.json({

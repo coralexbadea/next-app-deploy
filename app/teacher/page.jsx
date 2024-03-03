@@ -22,6 +22,14 @@ const TeacherPage = () => {
 
   const handleResetClick = async () => {
     // Reset all students' understanding status
+    await axios.put('/api/students', {studentId: 'all', understand: false});
+    // Fetch the updated students' understanding status
+    const response = await axios.get('/api/students');
+    setStudents(response.data.students);
+  };
+
+  
+  const handleDeleteStudents = async () => {
     await axios.delete('/api/students');
     // Fetch the updated students' understanding status
     const response = await axios.get('/api/students');
@@ -33,7 +41,8 @@ const TeacherPage = () => {
       <p>Total students: {totalStudents}</p>
       <p>Total students who understand: {totalStudentsUnderstand}</p>
       <p>Total students who do not understand: {totalStudentsDontUnderstand}</p>
-      <button onClick={handleResetClick}>Reset Understanding Status</button>
+      <button onClick={handleResetClick}>Reset Understanding Status</button><br /> <br /><br />
+      <button style={{backgroundColor: 'red'}} onClick={handleDeleteStudents}>Delete Students</button><br />
     </div>
   );
 };
