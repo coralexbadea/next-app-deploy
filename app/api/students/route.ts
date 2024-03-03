@@ -1,12 +1,12 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
-let students = [
-  { id: 'student1', understand: true },
-  { id: 'student2', understand: false },
-  { id: 'student3', understand: true },
-  { id: 'student4', understand: false },
-];
+type Student = {
+  id: string;
+  understand: boolean;
+};
+
+let students: Student[] = [];
 
 export async function POST(request: NextRequest) : Promise<any> {
   try {
