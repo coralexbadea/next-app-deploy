@@ -32,7 +32,7 @@ const TeacherPage = () => {
     <div>
       <p>Total students: {totalStudents}</p>
       <p>Total students who understand: {totalStudentsUnderstand}</p>
-      <p>Total students who don't understand: {totalStudentsDontUnderstand}</p>
+      <p>Total students who do not understand: {totalStudentsDontUnderstand}</p>
       <button onClick={handleResetClick}>Reset Understanding Status</button>
     </div>
   );
