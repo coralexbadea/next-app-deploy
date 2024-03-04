@@ -10,14 +10,6 @@ export default function YellowCircles() {
   };
 
   return (
-    <div className="circle-container">
-      {[...Array(10)].map((_, index) => (
-        <div
-          key={index}
-          className={`circle ${clickedIndex === index ? 'green' : 'yellow'}`}
-          onClick={() => handleClick(index)}
-        ></div>
-      ))}
-    </div>
+    <div> :) </div>
   );
 }

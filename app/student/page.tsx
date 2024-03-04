@@ -7,9 +7,10 @@ const StudentPage = () => {
     backgroundColor: 'green',
     color: 'white',
     padding: '10px 20px',
+    marginRight: '25px',
     borderRadius: '5px',
     border: 'none',
-    fontSize: '16px',
+    fontSize: '19px',
     fontWeight: 'bold',
     cursor: 'pointer',
     boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
@@ -35,7 +36,10 @@ const StudentPage = () => {
   return (
     <div>
       {studentId && <p style={{fontSize: '20px'}}>Student ID: {studentId}</p>}
-      <button style={buttonStyle} onClick={handleUnderstandClick}>I understand! 😲</button>
+      <div className='flex'>
+        <button style={buttonStyle} onClick={handleUnderstandClick}>I understand! 😲🧠 </button>
+        <button style={{...buttonStyle, backgroundColor:'purple', fontSize:'16px'}} >I don't understand 🤷‍♂️</button>
+      </div>
     </div>
   );
 };
